@@ -1,12 +1,6 @@
 'use strict';
 
-// urls and api-keys of both Apis
-const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
-const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
 
-const apiKeyYelp = 'AuZRmmpJYgg6UylAgbTMRLnQHly1vo6kcPe3SQzFd-3eEfxrRVGcbmSTT8AlCnsomgPjvfSP7_jM7uNCpDtbNQAK30Bo4Z_l1P6DlqmavIlGyWo6MnO51nFmstd7XnYx';
-const API_KEY = apiKeyYelp;
-const urlYelp = `https://api.yelp.com/v3/businesses/search?location=${location}`;
 
 
 //functions for the spoonacular Api
@@ -23,10 +17,14 @@ function formatQueryParams(ingredient, mealType, dietType, allergies) {
 
 function getRecipes(ingredient, mealType, dietType, allergies) {
     console.log('getRecipes()');
+    // urls and api-keys of both Apis
+    const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
+    const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
 
     const queryString = formatQueryParams(ingredient, mealType, dietType, allergies);
     const url = searchUrlSpoonacular + '?' + queryString + 'maxCalories=500&number=20&instructionsRequired=true&addRecipeInformation=true' + `&apiKey=${apiKeyspoonacular}`;
     console.log(url);
+
 
     fetch(url)
         .then(response => response.json())
@@ -43,9 +41,42 @@ function getRestaurants() {
         })
     };
 
-    fetch(urlYelp, options)
-        .then(response => response.json())
-        .then(responseJson => console.log(responseJson));
+    const apiKeyYelp = 'AuZRmmpJYgg6UylAgbTMRLnQHly1vo6kcPe3SQzFd-3eEfxrRVGcbmSTT8AlCnsomgPjvfSP7_jM7uNCpDtbNQAK30Bo4Z_l1P6DlqmavIlGyWo6MnO51nFmstd7XnYx';
+    // const urlYelp = `https://api.yelp.com/v3/businesses/search?location=${location}`;
+    const newUrl = 'https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972';
+
+    fetch(newUrl, {
+        dataType: 'jsonp',
+        crossDomain: true,
+        headers: {
+            // 'cors' by default
+            'Access-Control-Allow-Origin': "*",
+            "Accept": "application/jsonp",
+            "Content-Type": "application/jsonp",
+            mode: 'no-cors',
+            Authorization: `Bearer ${apiKeyYelp}`,
+            'API_KEY': apiKeyYelp
+        }
+    })
+
+        //success scenario (call the function to display the results)
+        .then(response => {
+            console.log(response);
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => console.log(responseJson))
+
+        // failure scenario (display errors)
+        .catch(err => {
+            console.log(err);
+        });
+
+    // fetch(urlYelp, options)
+    //     .then(response => response.json())
+    //     .then(responseJson => console.log(responseJson));
 }
 
 //eventhandler for both spoonacular and yelp Apis
