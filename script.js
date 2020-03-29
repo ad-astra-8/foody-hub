@@ -2,11 +2,12 @@
 
 // urls and api-keys of both Apis
 const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
-const searchUrlSpoonacular= "https://api.spoonacular.com/recipes/complexSearch";
+const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
 
 const apiKeyYelp = 'AuZRmmpJYgg6UylAgbTMRLnQHly1vo6kcPe3SQzFd-3eEfxrRVGcbmSTT8AlCnsomgPjvfSP7_jM7uNCpDtbNQAK30Bo4Z_l1P6DlqmavIlGyWo6MnO51nFmstd7XnYx';
-const urlYelp = `https://api.yelp.com/v3/businesses/search?location=${location}`;
 const API_KEY = apiKeyYelp;
+const urlYelp = `https://api.yelp.com/v3/businesses/search?location=${location}`;
+
 
 //functions for the spoonacular Api
 function formatQueryParams(ingredient, mealType, dietType, allergies) {
@@ -36,14 +37,13 @@ function getRecipes(ingredient, mealType, dietType, allergies) {
 function getRestaurants() {
     console.log('getRestaurants()');
 
-    //  const options = {
-    //     headers: new Headers({
-    //       Authorization: "BearerapiKeyYelp"})
-    //   };
-    
+    const options = {
+        headers: new Headers({
+            Authorization: 'Bearer API_KEY'
+        })
+    };
 
-    fetch(urlYelp)
-    // fetch()
+    fetch(urlYelp, options)
         .then(response => response.json())
         .then(responseJson => console.log(responseJson));
 }
