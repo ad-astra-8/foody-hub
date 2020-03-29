@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foody Hub-Food App to get healthy recipies and find local restaurant</title>
+    <link rel="shortcut icon" href="">
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">  -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header role="banner">
+        <h1>Foody Hub</h1>
+        <p> Look for a recipe to cook or places to eat!</p>
+        <p>Foody Hub will also give you everything you need to know about your favorite food.</p>
+
+    </header>
+
+
+    <div class="container">
+        <h2>What are you craving for today?</h2>
+
+        <form id="js-form">
+            <label for="search">Ingredient</label>
+            <input type="text" name="search-ingredient" id="js-search-ingredient" value="" required>
+
+            <label for="search">Meal type</label>
+            <input type="text" name="search-meal" id="js-search-meal" placeholder="snack">
+
+            <label for="search">Diet</label>
+            <input type="text" name="search-diet" id="js-search-diet" placeholder="vegetarian">
+
+            <label for="search">Allergies</label>
+            <input type="text" name="search-allergies" id="js-search-allergies" placeholder="gluten">
+
+
+            <label for="location">Location</label>
+            <input class="location" type="text" name="location" id="js-location" value="va">
+
+            <input type="submit" id="submit" value="Search!">
+        </form>
+
+        <section id="results-recipes" class="hidden">
+            <h2>Smells good already!</h2>
+            <h3>Recipes for <a id="js-search-ingredient"></a></h3>
+            <ul id="results-recipes-list">
+            </ul>
+        </section>
+
+        <section id="results-restaurants" class="hidden">
+            <h2>Feeling lazy, that's alright!</h2>
+            <h3>Restaurants near you for <a id="js-search-ingredient"></a></h3>
+            <ul id="results-restaurants-list">
+            </ul>
+        </section>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
