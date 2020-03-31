@@ -65,7 +65,9 @@
   .container {
     max-width: 600px;
     margin: 0 auto;
-    background-color: rgb(199, 245, 199);
+    /* background-color: rgb(199, 245, 199); */
+    background-color: #E2B013;
+    /* background-color: #A3C168; */
   }
   
   .error-message {

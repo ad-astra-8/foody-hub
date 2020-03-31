@@ -17,38 +17,41 @@ function formatQueryParams(ingredient, mealType, dietType, allergies) {
 
 function getRecipes(ingredient, mealType, dietType, allergies) {
     console.log('getRecipes()');
-    const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
+    // const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
+    const apiKeyspoonacular = "006e4475b2c34b2ea02b8f008d4a3cef";
+
     const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
 
     const queryString = formatQueryParams(ingredient, mealType, dietType, allergies);
     const url = searchUrlSpoonacular + '?' + queryString + 'maxCalories=500&number=20&instructionsRequired=true&addRecipeInformation=true' + `&apiKey=${apiKeyspoonacular}`;
     console.log(url);
 
-    //     fetch(url)
-    //         .then(response => {
-    //             if (response.ok) {
-    //                 return response.json();
-    //             }
-    //             throw new Error(response.statusText);
-    //         })
-    //         .then(responseJson =>
-    //             // console.log(responseJson))
-    //             displayResultsSpoonacular(responseJson))
-    //         .catch(err => {
-    //             $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    //         });
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(response.statusText);
+            })
+            .then(responseJson => {
+                console.log(responseJson)
+                displayResultsSpoonacular(responseJson, ingredient)
+            })
+            .catch(err => {
+                $('#js-error-message').text(`Something went wrong: ${err.message}`);
+            });
 }
 
 
-function displayResultsSpoonacular(responseJson) {
+function displayResultsSpoonacular(responseJson, ingredient) {
     console.log('displayResultsSpoonacular()');
     $('#results-recipes-list').empty();
 
     for (let i = 0; i < responseJson.results.length; i++) {
         console.log(responseJson.results[i]);
         $('#results-recipes-list').append(
-           `<h3>Recipes for ${ingredient}</h3>`
-            `<li>
+           `<h3>Recipes for ${ingredient}</h3>
+            <li>
                 <p>Weight Watcher smart points: ${responseJson.results[i].weightWatcherSmartPoints}</p>
                 <p>Url: <a  href="${responseJson.results[i].sourceUrl}">${responseJson.results[i].sourceUrl}</a></p>
                 <p>Sourcename: ${responseJson.results[i].sourceName}</p>
@@ -130,8 +133,10 @@ function displayResultsYouTube(responseJson) {
           
             `<li>
                 <p>${responseJson.items[i].snippet.title}</p> 
+                <a href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>
                 <img src='${responseJson.items[i].snippet.thumbnails.default.url}'> 
-            </li > `
+                </a>
+            </li>`
         )
     };
     $('#results-videos').removeClass('hidden');        
@@ -139,10 +144,13 @@ function displayResultsYouTube(responseJson) {
     $('#results-message').append(
             `<h2>Watch this!</h2>
             <h3>Videos for ${ingredient}</h3>`
+            
         )
 };
 
-//  <p>Url: "${responseJson.items.thumbnails[i]}"</p>
+
+// <p>Url: "${responseJson.items.thumbnails[i]}"</p>`
+
 //eventhandler for both spoonacular and you tube Apis
 function watchForm() {
     $('form').submit(event => {
