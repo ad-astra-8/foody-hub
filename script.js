@@ -28,14 +28,43 @@ function getRecipes(ingredient, mealType, dietType, allergies) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => console.log(responseJson))
+        .then(responseJson =>
+            // console.log(responseJson))
+            displayResultsSpoonacular(responseJson))
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
 }
 
-//functions for the youtube Api
 
+function displayResultsSpoonacular(responseJson) {
+    console.log('displayResultsSpoonacular()');
+    $('#results-recipes-list').empty();
+
+    for (let i = 0; i < responseJson.results.length; i++) {
+        console.log(responseJson.results[i]);
+        $('#results-recipes-list').append(
+            `<li>
+                <p>Weight Watcher smart points: "${responseJson.results[i].weightWatcherSmartPoints}"</p>
+                 <p>Url: <a  href="${responseJson.results[i].sourceUrl}">"${responseJson.results[i].sourceUrl}"</a></p>
+                 <p>Sourcename: "${responseJson.results[i].sourceName}"</p>
+                <p>title: "${responseJson.results[i].title}"</p>
+                 <p>image: "${responseJson.results[i].image}"</p>
+                 <p>summary: "${responseJson.results[i].summary}"</p>
+            </li>`
+        )
+    };
+    $('#results-recipes').removeClass('hidden');
+};
+
+//<p>summary: "${responseJson.diets[i]}"</p>
+
+
+
+
+
+
+//functions for the youtube Api
 
 function formatQueryParamsYoutube() {
     const API_KEY = 'AIzaSyBslEsiJJgKJb6bak269C49LaArNjU4xxc';
@@ -51,7 +80,7 @@ function formatQueryParamsYoutube() {
     queryString += `q=${ingredient}+${mealType}+${dietType}+${allergies}+recipe&`;
     queryString += 'part=snippet&';
     queryString += 'maxResults=6';
-    console.log(queryString)
+    // console.log(queryString)
     return queryString
 }
 
@@ -85,33 +114,12 @@ function getYouTubeVideos() {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => console.log(responseJson))
+        .then(responseJson =>
+            console.log(responseJson))
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
 }
-
-// function displayResultsSpoonacular(responseJson) {
-//     console.log('displayResults()');
-//     $('#results-recipes-list').empty();
-
-//     for (let i = 0; i < responseJson.data.length; i++) {
-//         // console.log(responseJson.data[i]);
-//         // console.log(responseJson.data[i].addresses[i]);
-//         $('#results-list').append(
-//             `<li>
-//                 <p>Park Name: "${responseJson.data[i].fullName}"</p>
-//                 <p>Description: "${responseJson.data[i].description}"</p>
-//                 <p>Url: <a  href="${responseJson.data[i].url}">"${responseJson.data[i].url}"</a></p>
-          
-//             </li>`
-//             // <p>Addresses: "${responseJson.data[i].addresses[i]}"</p>
-//         )
-//     };
-//     $('#results').removeClass('hidden');
-// };
-
-
 
 
 //eventhandler for both spoonacular and yelp Apis
@@ -134,5 +142,4 @@ function watchForm() {
 $(function () {
     console.log('App loaded! Waiting for submit!');
     watchForm();
-    displayResultsSpoonacular();
 });
