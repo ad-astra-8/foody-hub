@@ -13,16 +13,16 @@
 
 <body>
     <header role="banner">
-        <h1>Foody Hub</h1>
-        <p> Look for a recipe to cook or places to eat!</p>
-        <p>Foody Hub will also give you everything you need to know about your favorite food.</p>
-
+        <h1>Foody Hub </h1>
+        <p class="in-title">Every recipe, 500 calories or less!</p>
+        
     </header>
 
-
     <div class="container">
-        <h2>What are you craving for today?</h2>
-
+        <h2>What are you craving today?</h2>
+        <!-- <p>Foody Hub will also tell you everything you need to know about your favorite food.</p> -->
+        <p> Look for a bliss of a recipe and cook it up! </p>
+        <p>Any diet requirements? Foody Hub got you!</p>
         <form id="js-form">
             <label for="search">Ingredient</label>
             <input type="text" name="search-ingredient" id="js-search-ingredient" value="" required>
@@ -37,8 +37,8 @@
             <input type="text" name="search-allergies" id="js-search-allergies" placeholder="gluten">
 
 
-            <label for="videos">Videos Max R</label>
-            <input class="max-results" type="number" name="max-results" id="#js-max-results" value="6">
+            <!-- <label for="videos">Videos Max R</label>
+            <input class="max-results" type="number" name="max-results" id="#js-max-results" value="6"> -->
 
             <input type="submit" id="submit" value="Search!">
         </form>
@@ -47,14 +47,14 @@
 
         <section id="results-recipes" class="hidden">
             <h2>Smells good already!</h2>
-            <h3>Recipes for <a id="js-search-ingredient"></a></h3>
+            <!-- <h3>Recipes for <a id="js-search-ingredient"></a></h3> -->
             <ul id="results-recipes-list">
             </ul>
         </section>
 
         <section id="results-videos" class="hidden">
-            <h2>Watch this!</h2>
-            <h3>Videos for <a id="js-search-video"></a></h3>
+            <div id="results-message"></div>
+            <!-- <h3>Videos for <a id="js-search-video"></a></h3> -->
             <ul id="results-videos-list">
             </ul>
         </section>
