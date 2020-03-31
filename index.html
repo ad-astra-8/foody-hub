@@ -37,11 +37,13 @@
             <input type="text" name="search-allergies" id="js-search-allergies" placeholder="gluten">
 
 
-            <label for="location">Location</label>
-            <input class="location" type="text" name="location" id="js-location" value="va">
+            <label for="videos">Videos Max R</label>
+            <input class="max-results" type="number" name="max-results" id="#js-max-results" value="6">
 
             <input type="submit" id="submit" value="Search!">
         </form>
+
+        <p id="js-error-message" class="error-message"></p>
 
         <section id="results-recipes" class="hidden">
             <h2>Smells good already!</h2>
@@ -50,10 +52,10 @@
             </ul>
         </section>
 
-        <section id="results-restaurants" class="hidden">
-            <h2>Feeling lazy, that's alright!</h2>
-            <h3>Restaurants near you for <a id="js-search-ingredient"></a></h3>
-            <ul id="results-restaurants-list">
+        <section id="results-videos" class="hidden">
+            <h2>Watch this!</h2>
+            <h3>Videos for <a id="js-search-video"></a></h3>
+            <ul id="results-videos-list">
             </ul>
         </section>
 
