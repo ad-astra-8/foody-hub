@@ -17,57 +17,57 @@ function formatQueryParams(ingredient, mealType, dietType, allergies) {
 
 function getRecipes(ingredient, mealType, dietType, allergies) {
     console.log('getRecipes()');
-    // const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
-    const apiKeyspoonacular = "006e4475b2c34b2ea02b8f008d4a3cef";
-
+    const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
+    // const apiKeyspoonacular = "006e4475b2c34b2ea02b8f008d4a3cef";
     const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
 
     const queryString = formatQueryParams(ingredient, mealType, dietType, allergies);
-    const url = searchUrlSpoonacular + '?' + queryString + 'maxCalories=500&number=20&instructionsRequired=true&addRecipeInformation=true' + `&apiKey=${apiKeyspoonacular}`;
+    const url = searchUrlSpoonacular + '?' + queryString + 'maxCalories=500&number=6&instructionsRequired=true&addRecipeInformation=true&apiKey=' + apiKeyspoonacular;
     console.log(url);
 
-        fetch(url)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error(response.statusText);
-            })
-            .then(responseJson => {
-                console.log(responseJson)
-                displayResultsSpoonacular(responseJson, ingredient)
-            })
-            .catch(err => {
-                $('#js-error-message').text(`Something went wrong: ${err.message}`);
-            });
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => {
+            console.log(responseJson)
+            displayResultsSpoonacular(responseJson, ingredient)
+        })
+        .catch(err => {
+            $('#js-error-message').text(`Something went wrong: ${err.message}`);
+        });
 }
 
 
 function displayResultsSpoonacular(responseJson, ingredient) {
     console.log('displayResultsSpoonacular()');
     $('#results-recipes-list').empty();
+    $('#results-recipes-message').append(
+        `<h2 class="message">Smells good already!</h2>
+        <h3>Recipes for "${ingredient}"</h3>`
+    )
 
     for (let i = 0; i < responseJson.results.length; i++) {
         console.log(responseJson.results[i]);
         $('#results-recipes-list').append(
-           `<h3>Recipes for ${ingredient}</h3>
-            <li>
-                <p>Weight Watcher smart points: ${responseJson.results[i].weightWatcherSmartPoints}</p>
-                <p>Url: <a  href="${responseJson.results[i].sourceUrl}">${responseJson.results[i].sourceUrl}</a></p>
-                <p>Sourcename: ${responseJson.results[i].sourceName}</p>
-                <p>title: "${responseJson.results[i].title}"</p>
-                <img src='${responseJson.results[i].image}'> 
-                <p>summary: ${responseJson.results[i].summary}</p>
+            `<li>
+            <p class="title"><a href="${responseJson.results[i].sourceUrl}">"${responseJson.results[i].title}"</a></p> 
+            <p>${responseJson.results[i].diets}</p>
+            <a href="${responseJson.results[i].sourceUrl}"><img class="recipe-image" src='${responseJson.results[i].image}' alt="recipe image"></a>
+            <p class="summary">summary: ${responseJson.results[i].summary}</p>              
+            <p class="sourcename">Source Name: ${responseJson.results[i].sourceName}.</p>
             </li>`
         )
     };
     $('#results-recipes').removeClass('hidden');
 };
 
-//<p>summary: "${responseJson.diets[i]}"</p>
+
 
 //functions for the youtube Api
-
 function formatQueryParamsYoutube() {
     const API_KEY = 'AIzaSyBslEsiJJgKJb6bak269C49LaArNjU4xxc';
     const ingredient = $("#js-search-ingredient").val();
@@ -81,7 +81,7 @@ function formatQueryParamsYoutube() {
     queryString += `key=${API_KEY}&`;
     queryString += `q=${ingredient}+${mealType}+${dietType}+${allergies}+recipe&`;
     queryString += 'part=snippet&';
-    queryString += 'maxResults=4';
+    queryString += 'maxResults=6';
     // console.log(queryString)
     return queryString
 }
@@ -122,30 +122,27 @@ function getYouTubeVideos() {
 }
 
 function displayResultsYouTube(responseJson) {
-    // const ingredient = $("#js-search-ingredient").val();
-
+    const ingredient = $("#js-search-ingredient").val();
     console.log('displayResultsYouTube()');
     $('#results-videos-list').empty();
+    $('#results-message').append(
+        `<h2 class="message">Watch this!</h2>
+            <h3>Videos for "${ingredient}"</h3>`
+    )
 
     for (let i = 0; i < responseJson.items.length; i++) {
         console.log(responseJson.items[i]);
         $('#results-videos-list').append(
-          
+
             `<li>
-                <p>${responseJson.items[i].snippet.title}</p> 
-                <a href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>
-                <img src='${responseJson.items[i].snippet.thumbnails.default.url}'> 
+                <p class="title"><a  href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>"${responseJson.items[i].snippet.title}"</a></p> 
+                <a  href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>
+                <img class="recipe-image" src='${responseJson.items[i].snippet.thumbnails.default.url}' alt="recipe video thumbnail"> 
                 </a>
             </li>`
         )
     };
-    $('#results-videos').removeClass('hidden');        
-    
-    $('#results-message').append(
-            `<h2>Watch this!</h2>
-            <h3>Videos for ${ingredient}</h3>`
-            
-        )
+    $('#results-videos').removeClass('hidden');
 };
 
 
