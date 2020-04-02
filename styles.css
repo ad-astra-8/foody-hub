@@ -19,14 +19,14 @@
 
   button, input[type="text"] {
     padding: 5px;
-  }
+  } */
 
-  .container {
+  /* .container {
     max-width: 600px;
     padding: 20px;
     background-color: #EFD6C7;
     border-top: 1px solid white;
-  }
+  } */
   
   ul {
     list-style: none;
@@ -34,7 +34,7 @@
     margin: 0;
   }
   
-  h1{
+  /* h1{
     color:white;
     position: relative;
     top: 15px;
@@ -86,13 +86,13 @@
   
   li, img{
     max-width: 500px;
-  }
+  } */
   
   .error-message{
       color: rgb(255, 83, 4);
   }
   
-  footer{
+  /* footer{
     font-size: 10px;
   }
 
@@ -104,13 +104,13 @@
   form{
     display: inline-grid;
     padding: 30px 0 30px 0;
-  }
+  } */
 
   .hidden{
     display: none;
   }
 
-  input{
+  /* input{
     padding: 10px 0 10px 0;
     margin: 10px 0 10px 0;
     height: 44px;
@@ -130,14 +130,14 @@
 
   .message{
     padding-bottom: 0;
-  }
+  } */
 
   .summary{
     font-size: 16px;
     display: none;
   }
 
-  .presentation{
+  /* .presentation{
     text-align: left;
     line-height: 1.5;
 }
@@ -145,7 +145,7 @@
   #submit:hover{
     box-shadow: 0 0 2px 1px #D82C18;
     cursor: pointer;
-  }
+  } */
 
   .recipe-image{
     border: 4px solid white;
@@ -154,9 +154,9 @@
     width: 250px;
   }
 
-  .results-videos{
+  /* .results-videos{
     background-color:#F4F1E6;
-  }
+  } */
 
   section{
     border-top: 2px solid white;
@@ -168,7 +168,7 @@
     text-decoration: underline;
   }
 
-  #submit{
+  /* #submit{
     font-size: 20px;
     background-color: #517414;;
     -webkit-appearance: media-sliderthumb;
@@ -182,5 +182,5 @@
   .title{
     font-size: 20px;
     color: #453023;
-  }
- */
+  } */
+
