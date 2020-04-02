@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foody Hub. App for healthy recipies</title>
+    <script src="https://kit.fontawesome.com/395acf80c5.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="">    
-    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">    
-
 </head>
+
 
 <body>
     <header role="banner">
@@ -22,12 +21,11 @@
 
     <div class="container">
         <h2>What are you craving?</h2>
-
-        <!-- <p>Foody Hub will also tell you everything you need to know about your favorite food.</p> -->
-        <p class="presentation"> Foody Hub will help you find the perfect healthy and low calorie recipe for whatever your heart desires. Just remember to specify if you have any diet requirements? Foody Hub is on the lookout for you!</p>
+        <p class="presentation">Foody Hub will help you find the perfect healthy and low calorie recipe for whatever your heart desires. Just remember to specify if you have any diet requirements? Foody Hub is on the lookout for you!</p>
         <form id="js-form">
-            <label for="search">Food/Ingredient:</label>
-            <input type="text" name="search-ingredient" id="js-search-ingredient" value="" placeholder="e.g. chicken pho, cheescake, ginger, strawberry" required>
+            <label for="search">Food/Ingredient:
+            </label>
+            <input type="text" name="search-ingredient" id="js-search-ingredient" value="" placeholder="e.g. chicken pho, brownies, ginger, salad" required>
 
             <label for="search">Meal Type:</label>
             <input type="text" name="search-meal" id="js-search-meal" placeholder="e.g. breakfast, brunch, snack, dinner">
@@ -38,26 +36,19 @@
             <label for="search">Allergies:</label>
             <input type="text" name="search-allergies" id="js-search-allergies" placeholder="e.g. peanut, seafood, dairy, egg">
 
-
-            <!-- <label for="videos">Videos Max R</label>
-            <input class="max-results" type="number" name="max-results" id="#js-max-results" value="6"> -->
-
-            <input type="submit" id="submit" value="Search!" >
+            <input type="submit" id="submit" value="Search!">
         </form> 
 
         <p id="js-error-message" class="error-message"></p>
 
         <section id="results-recipes" class="hidden">
             <div id="results-recipes-message"></div>
-            <!-- <h2>Smells good already!</h2> -->
-            <!-- <h3>Recipes for <a id="js-search-ingredient"></a></h3> -->
             <ul id="results-recipes-list">
             </ul>
         </section>
 
         <section id="results-videos" class="hidden">
             <div id="results-message"></div>
-            <!-- <h3>Videos for <a id="js-search-video"></a></h3> -->
             <ul id="results-videos-list">
             </ul>
         </section>
@@ -70,5 +61,4 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

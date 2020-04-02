@@ -1,10 +1,8 @@
 'use strict';
 const ingredient = $("#js-search-ingredient").val();
 
-//functions for the spoonacular Api
+//functions related to the spoonacular Api
 function formatQueryParams(ingredient, mealType, dietType, allergies) {
-    // const ingredient = $("#js-search-ingredient").val();
-
     console.log('formatQueryParams()');
     let queryString = '';
     queryString += `query=${ingredient}&`;
@@ -20,7 +18,6 @@ function getRecipes(ingredient, mealType, dietType, allergies) {
     const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
     // const apiKeyspoonacular = "006e4475b2c34b2ea02b8f008d4a3cef";
     const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
-
     const queryString = formatQueryParams(ingredient, mealType, dietType, allergies);
     const url = searchUrlSpoonacular + '?' + queryString + 'maxCalories=500&number=6&instructionsRequired=true&addRecipeInformation=true&apiKey=' + apiKeyspoonacular;
     console.log(url);
@@ -41,24 +38,31 @@ function getRecipes(ingredient, mealType, dietType, allergies) {
         });
 }
 
-
 function displayResultsSpoonacular(responseJson, ingredient) {
     console.log('displayResultsSpoonacular()');
+    console.log(`total results: ${responseJson.totalResults}`);
     $('#results-recipes-list').empty();
-    $('#results-recipes-message').append(
-        `<h2 class="message">Smells good already!</h2>
-        <h3>Recipes for "${ingredient}"</h3>`
-    )
+    $('#results-recipes-message').empty();
+
+    if (responseJson.totalResults == 0) {
+        $('#results-recipes-message').append(
+            `<h2 class="message">Sorry, we couldn't find anything!</h2><i class="fas fa-bone"></i>`)
+    } else {
+
+        $('#results-recipes-message').append(
+            `<h2 class="message">Smells good already!</h2>
+            <h3>Recipes for "${ingredient}"</h3>`
+        )
+    }
 
     for (let i = 0; i < responseJson.results.length; i++) {
-        console.log(responseJson.results[i]);
         $('#results-recipes-list').append(
             `<li>
-            <p class="title"><a href="${responseJson.results[i].sourceUrl}">"${responseJson.results[i].title}"</a></p> 
-            <p>${responseJson.results[i].diets}</p>
-            <a href="${responseJson.results[i].sourceUrl}"><img class="recipe-image" src='${responseJson.results[i].image}' alt="recipe image"></a>
-            <p class="summary">summary: ${responseJson.results[i].summary}</p>              
-            <p class="sourcename">Source Name: ${responseJson.results[i].sourceName}.</p>
+                <p class="title"><a href="${responseJson.results[i].sourceUrl}">"${responseJson.results[i].title}"</a></p> 
+                <p>${responseJson.results[i].diets}</p>
+                <a href="${responseJson.results[i].sourceUrl}"><img class="recipe-image" src='${responseJson.results[i].image}' alt="recipe image"></a>
+                <p class="summary">summary: ${responseJson.results[i].summary}</p>              
+                <p class="sourcename">Source Name: "${responseJson.results[i].sourceName}."</p>
             </li>`
         )
     };
@@ -66,8 +70,7 @@ function displayResultsSpoonacular(responseJson, ingredient) {
 };
 
 
-
-//functions for the youtube Api
+//functions related to the youtube Api
 function formatQueryParamsYoutube() {
     const API_KEY = 'AIzaSyBslEsiJJgKJb6bak269C49LaArNjU4xxc';
     const ingredient = $("#js-search-ingredient").val();
@@ -79,7 +82,7 @@ function formatQueryParamsYoutube() {
     console.log('formatQueryParamsYoutube()');
     let queryString = '';
     queryString += `key=${API_KEY}&`;
-    queryString += `q=${ingredient}+${mealType}+${dietType}+${allergies}+recipe&`;
+    queryString += `q=${ingredient}+${mealType}+${dietType}+${allergies}+recipe+low+calories&`;
     queryString += 'part=snippet&';
     queryString += 'maxResults=6';
     // console.log(queryString)
@@ -87,21 +90,7 @@ function formatQueryParamsYoutube() {
 }
 
 function getYouTubeVideos() {
-    // const searchURL = `https://www.googleapis.com/youtube/v3/search?q=${ingredient}+recipe&`;
     const searchURL = `https://www.googleapis.com/youtube/v3/search`;
-    // const params = {
-    //     key: API_KEY,
-    //     q: `${ingredient}`,
-    //     part: 'snippet',
-    //     maxResults: 10
-    // };
-
-    // function formatQueryParamsYoutube(params) {
-    //     const queryItems = Object.keys(params)
-    //         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-    //     return queryItems.join('&');
-    // }
-
     const queryStringYoutube = formatQueryParamsYoutube()
     const urlYouTube = searchURL + '?' + queryStringYoutube;
     console.log(urlYouTube);
@@ -125,6 +114,7 @@ function displayResultsYouTube(responseJson) {
     const ingredient = $("#js-search-ingredient").val();
     console.log('displayResultsYouTube()');
     $('#results-videos-list').empty();
+    $('#results-message').empty();
     $('#results-message').append(
         `<h2 class="message">Watch this!</h2>
             <h3>Videos for "${ingredient}"</h3>`
@@ -139,14 +129,12 @@ function displayResultsYouTube(responseJson) {
                 <a  href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>
                 <img class="recipe-image" src='${responseJson.items[i].snippet.thumbnails.default.url}' alt="recipe video thumbnail"> 
                 </a>
+                <p class="sourcename">Source: <i class="fab fa-youtube"></i> YouTube.</p>
             </li>`
         )
     };
     $('#results-videos').removeClass('hidden');
 };
-
-
-// <p>Url: "${responseJson.items.thumbnails[i]}"</p>`
 
 //eventhandler for both spoonacular and you tube Apis
 function watchForm() {
