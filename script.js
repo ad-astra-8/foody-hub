@@ -1,4 +1,5 @@
 'use strict';
+//declared as a global variable so both api's functions are able to refer to its value
 const ingredient = $("#js-search-ingredient").val();
 
 //functions related to the spoonacular Api
@@ -15,6 +16,7 @@ function formatQueryParams(ingredient, mealType, dietType, allergies) {
 
 function getRecipes(ingredient, mealType, dietType, allergies) {
     console.log('getRecipes()');
+    //both keys are valid, used as a back up in case of run out of Api calls, one key allows 150 calls per day only
     const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
     // const apiKeyspoonacular = "006e4475b2c34b2ea02b8f008d4a3cef";
     const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
