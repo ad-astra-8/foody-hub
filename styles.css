@@ -235,6 +235,9 @@
       display: inline-block;
       width: 50%;
       vertical-align: bottom;
+      transition-property: li;
+      transition-duration: 20s;
+      transition-timing-function: linear;
     }
   
     #results-videos-list li {
@@ -246,10 +249,16 @@
     h1{
       padding-top: 40px;
       font-size: 55px;
+      transition-property: font-size;
+      transition-duration: 1s;
+      transition-timing-function: linear;
     }
 
     h2{
       font-size: 44px;
+      transition-property: font-size;
+      transition-duration: 1s;
+      transition-timing-function: linear;
     }
   }
 
@@ -274,5 +283,8 @@
     .in-title{
       font-size: 24px;
       margin: 0;
+      transition-property: font-size;
+      transition-duration: 1s;
+      transition-timing-function: linear;
     }
   }
