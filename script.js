@@ -4,7 +4,7 @@ const ingredient = $("#js-search-ingredient").val();
 
 //functions related to the spoonacular Api
 function formatQueryParams(ingredient, mealType, dietType, allergies) {
-    console.log('formatQueryParams()');
+    // console.log('formatQueryParams()');
     let queryString = '';
     queryString += `query=${ingredient}&`;
     queryString += `type=${mealType}&`;
@@ -15,14 +15,14 @@ function formatQueryParams(ingredient, mealType, dietType, allergies) {
 }
 
 function getRecipes(ingredient, mealType, dietType, allergies) {
-    console.log('getRecipes()');
+    // console.log('getRecipes()');
     //both keys are valid, used as a back up in case of run out of Api calls, one key allows 150 calls per day only
     // const apiKeyspoonacular = "0a704e80601d4fbe8ef5821111aa6479";
     const apiKeyspoonacular = "006e4475b2c34b2ea02b8f008d4a3cef";
     const searchUrlSpoonacular = "https://api.spoonacular.com/recipes/complexSearch";
     const queryString = formatQueryParams(ingredient, mealType, dietType, allergies);
     const url = searchUrlSpoonacular + '?' + queryString + 'maxCalories=500&number=6&instructionsRequired=true&addRecipeInformation=true&apiKey=' + apiKeyspoonacular;
-    console.log(url);
+    // console.log(url);
 
     fetch(url)
         .then(response => {
@@ -32,7 +32,7 @@ function getRecipes(ingredient, mealType, dietType, allergies) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
-            console.log(responseJson)
+            // console.log(responseJson)
             displayResultsSpoonacular(responseJson, ingredient)
         })
         .catch(err => {
@@ -41,8 +41,8 @@ function getRecipes(ingredient, mealType, dietType, allergies) {
 }
 
 function displayResultsSpoonacular(responseJson, ingredient) {
-    console.log('displayResultsSpoonacular()');
-    console.log(`total results: ${responseJson.totalResults}`);
+    // console.log('displayResultsSpoonacular()');
+    // console.log(`total results: ${responseJson.totalResults}`);
     $('#results-recipes-list').empty();
     $('#results-recipes-message').empty();
 
@@ -83,8 +83,7 @@ function formatQueryParamsYoutube() {
     const dietType = $("#js-search-diet").val();
     const allergies = $("#js-search-allergies").val();
 
-
-    console.log('formatQueryParamsYoutube()');
+    // console.log('formatQueryParamsYoutube()');
     let queryString = '';
     queryString += `key=${API_KEY}&`;
     queryString += `q=${ingredient}+${mealType}+${dietType}+${allergies}+recipe+low+calories&`;
@@ -98,7 +97,7 @@ function getYouTubeVideos() {
     const searchURL = `https://www.googleapis.com/youtube/v3/search`;
     const queryStringYoutube = formatQueryParamsYoutube()
     const urlYouTube = searchURL + '?' + queryStringYoutube;
-    console.log(urlYouTube);
+    // console.log(urlYouTube);
 
     fetch(urlYouTube)
         .then(response => {
@@ -117,7 +116,7 @@ function getYouTubeVideos() {
 
 function displayResultsYouTube(responseJson) {
     const ingredient = $("#js-search-ingredient").val();
-    console.log('displayResultsYouTube()');
+    // console.log('displayResultsYouTube()');
     $('#results-videos-list').empty();
     $('#results-message').empty();
     $('#results-message').append(
@@ -126,7 +125,7 @@ function displayResultsYouTube(responseJson) {
     )
 
     for (let i = 0; i < responseJson.items.length; i++) {
-        console.log(responseJson.items[i]);
+        // console.log(responseJson.items[i]);
         $('#results-videos-list').append(
 
             `<li>
@@ -145,14 +144,14 @@ function displayResultsYouTube(responseJson) {
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        console.log('watchForm()');
+        // console.log('watchForm()');
         const ingredient = $("#js-search-ingredient").val();
         const mealType = $("#js-search-meal").val();
         const dietType = $("#js-search-diet").val();
         const allergies = $("#js-search-allergies").val();
         const maxResults = $("#js-max-results").val();
         getRecipes(ingredient, mealType, dietType, allergies);
-        console.log(`${ingredient}`);
+        // console.log(`${ingredient}`);
         getYouTubeVideos();
     });
 }
