@@ -48,7 +48,8 @@ function displayResultsSpoonacular(responseJson, ingredient) {
 
     if (responseJson.totalResults == 0) {
         $('#results-recipes-message').append(
-            `<h2 class="message">Sorry, we couldn't find anything!</h2><i class="fas fa-bone"></i>`)
+            `<h2 class="message">Sorry, we couldn't find anything!</h2><i class="fas fa-bone"></i>
+            <p class="sourcename">Spoonacular</p>`)
     } else {
 
         $('#results-recipes-message').append(
