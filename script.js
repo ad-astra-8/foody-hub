@@ -75,7 +75,9 @@ function displayResultsSpoonacular(responseJson, ingredient) {
 
 //functions related to the youtube Api
 function formatQueryParamsYoutube() {
-    const API_KEY = 'AIzaSyBslEsiJJgKJb6bak269C49LaArNjU4xxc';
+    // both keys are valid, used as a back up in case of run out of Api calls
+    // const API_KEY = 'AIzaSyBslEsiJJgKJb6bak269C49LaArNjU4xxc';
+    const API_KEY = 'AIzaSyDJv3_eVtLsls-B38vctoiwnhy0jG6gsZc';
     const ingredient = $("#js-search-ingredient").val();
     const mealType = $("#js-search-meal").val();
     const dietType = $("#js-search-diet").val();
