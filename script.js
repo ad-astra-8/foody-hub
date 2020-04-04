@@ -61,9 +61,9 @@ function displayResultsSpoonacular(responseJson, ingredient) {
     for (let i = 0; i < responseJson.results.length; i++) {
         $('#results-recipes-list').append(
             `<li>
-                <p class="title"><a href="${responseJson.results[i].sourceUrl}">"${responseJson.results[i].title}"</a></p> 
-                <p>${responseJson.results[i].diets}</p>
-                <a href="${responseJson.results[i].sourceUrl}"><img class="recipe-image" src='${responseJson.results[i].image}' alt="recipe image"></a>
+                <h4 class="title"><a href="${responseJson.results[i].sourceUrl}">"${responseJson.results[i].title}"</a></h4> 
+                <p class="diets">${responseJson.results[i].diets}</p>
+                <a href="${responseJson.results[i].sourceUrl}" target='_blank'><img class="recipe-image" src='${responseJson.results[i].image}' alt="recipe image"></a>
                 <p class="summary">summary: ${responseJson.results[i].summary}</p>              
                 <p class="sourcename">Source Name: "${responseJson.results[i].sourceName}."</p>
             </li>`
@@ -129,7 +129,7 @@ function displayResultsYouTube(responseJson) {
         $('#results-videos-list').append(
 
             `<li>
-                <p class="title"><a  href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>"${responseJson.items[i].snippet.title}"</a></p> 
+                <h4 class="title"><a  href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>"${responseJson.items[i].snippet.title}"</a></h4> 
                 <a  href='https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}' target='_blank'>
                 <img class="recipe-image" src='${responseJson.items[i].snippet.thumbnails.default.url}' alt="recipe video thumbnail"> 
                 </a>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foody Hub. App for healthy recipies</title>
     <script src="https://kit.fontawesome.com/395acf80c5.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="">
+    <!-- <link rel="shortcut icon" href=""> -->
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&family=Spicy+Rice&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -20,52 +20,54 @@
         <p class="in-title">Every recipe: 500 calories or less!</p>
     </header>
 
-    <section class="container">
-        <h2>What are you craving?</h2>
-        <p class="presentation">Foody Hub will help you find the perfect healthy and low calorie recipe for whatever
-            your heart desires. Just remember to specify if you have any diet requirements? Foody Hub is on the lookout
-            for you!</p>
-        <form id="js-form">
-            <fieldset>
-                <label for="search">Food/Ingredient:</label>
-                <input type="text" name="search-ingredient" id="js-search-ingredient" value=""
-                    placeholder="e.g. chicken pho, brownies, honey, crepes" required>
+    <main>
+        <section class="container">
+            <h2>What are you craving?</h2>
+            <p class="presentation">Foody Hub will help you find the perfect healthy and low calorie recipe for whatever
+                your heart desires. Just remember to specify if you have any diet requirements? Foody Hub is on the
+                lookout
+                for you!</p>
+            <form id="js-form">
+                <fieldset>
+                    <label for="js-search-ingredient">Food/Ingredient:</label>
+                    <input type="text" name="search-ingredient" id="js-search-ingredient" value=""
+                        placeholder="e.g. chicken pho, brownies, honey, crepes" required>
 
-                <label for="search">Meal Type:</label>
-                <input type="text" name="search-meal" id="js-search-meal"
-                    placeholder="e.g. breakfast, brunch, snack, dinner">
+                    <label for="js-search-meal">Meal Type:</label>
+                    <input type="text" name="search-meal" id="js-search-meal"
+                        placeholder="e.g. breakfast, brunch, snack, dinner">
 
-                <label for="search">Diet:</label>
-                <input type="text" name="search-diet" id="js-search-diet"
-                    placeholder="e.g. keto, vegetarian, vegan, gluten free">
+                    <label for="js-search-diet">Diet:</label>
+                    <input type="text" name="search-diet" id="js-search-diet"
+                        placeholder="e.g. keto, vegetarian, vegan, gluten free">
 
-                <label for="search">Allergies:</label>
-                <input type="text" name="search-allergies" id="js-search-allergies"
-                    placeholder="e.g. peanut, seafood, dairy, egg">
+                    <label for="js-search-allergies">Allergies:</label>
+                    <input type="text" name="search-allergies" id="js-search-allergies"
+                        placeholder="e.g. peanut, seafood, dairy, egg">
 
-                <input type="submit" id="submit" value="Search!">
-            </fieldset>
-        </form>
+                    <input type="submit" id="submit" value="Search!">
+                </fieldset>
+            </form>
 
-        <p id="js-error-message" class="error-message"></p>
-    </section>
+            <p id="js-error-message" class="error-message"></p>
+        </section>
 
-    <section id="results-recipes" class="hidden">
-        <div id="results-recipes-message"></div>
-        <ul id="results-recipes-list">
-        </ul>
-    </section>
+        <section id="results-recipes" class="hidden">
+            <div id="results-recipes-message"></div>
+            <ul id="results-recipes-list">
+            </ul>
+        </section>
 
-    <section id="results-videos" class="hidden">
-        <div id="results-message"></div>
-        <ul id="results-videos-list">
-        </ul>
-    </section>
+        <section id="results-videos" class="hidden">
+            <div id="results-message"></div>
+            <ul id="results-videos-list">
+            </ul>
+        </section>
 
-    <footer role="contentinfo">
-        <p class="copyright">© Copyright 2020 Wanda Antoine</p>
-    </footer>
-
+        <footer role="contentinfo">
+            <p class="copyright">© Copyright 2020 Wanda Antoine</p>
+        </footer>
+    </main>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="script.js"></script>

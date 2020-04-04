@@ -30,13 +30,13 @@ So that I can control and monitor my eating habits.
 ### Wireframe
 Landing/Login Page
 :-------------------------:
-![Landing/Login Page](/github-images/wireframes/Landing-Page.png)  
+![Landing/Login Page](images\foody-hub-app-wireframe.jpg?raw=true) 
+
 
 ## Screenshots
-
 Landing/Login Page 
 :-------------------------:
-![Landing Page](/github-images/login-page.png)  
+![Landing Page](images\foody-hub-app-screenshot3.jpg?raw=true) 
 
 ## Functionality
 The app's functionality includes:
@@ -44,7 +44,7 @@ Search feature looks for user's number (XXXXX) and possible Rebrickable number (
 
 * Every User has the ability to create an account that stores information unique to them
 * User can Add Entries, Update Entries, and Delete Entries
-* User can sort entries by: Date & Type (Read, Seen, Performed)
+* User can sort entries by: meal and diet (eg. dinner, keto, nut allergies)
 
 ## Technology
 * Front-End: HTML5, CSS3, JavaScript ES6, jQuery
@@ -54,4 +54,5 @@ App is built to be usable on mobile devices, as well as responsive across mobile
 
 ## Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
-
+*More pages in order to include more search results 
+*A feature that will allow the users to save their favorite recipes.
