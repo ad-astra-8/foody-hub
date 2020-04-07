@@ -47,5 +47,5 @@ App is built to be usable on mobile devices, as well as responsive across mobile
 
 ## Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
-*More pages in order to include more search results 
-*A feature that will allow the users to save their favorite recipes.
+* More pages in order to include more search results 
+* A feature that will allow the users to save their favorite recipes.
