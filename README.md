@@ -30,20 +30,15 @@ So that I can control and monitor my eating habits.
 ### Wireframe
 Landing/Login Page
 :-------------------------:
-![Landing/Login Page](images\foody-hub-app-wireframe.jpg?raw=true) 
-
+![Landing/Login Page](/images/foody-hub-app-wireframe.jpg) 
 
 ## Screenshots
 Landing/Login Page 
 :-------------------------:
-![Landing Page](images\foody-hub-app-screenshot3.jpg?raw=true) 
+![Landing Page](/images/foody-hub-app-screenshot3.jpg) 
 
 ## Functionality
 The app's functionality includes:
-Search feature looks for user's number (XXXXX) and possible Rebrickable number (XXXXX-1)
-
-* Every User has the ability to create an account that stores information unique to them
-* User can Add Entries, Update Entries, and Delete Entries
 * User can sort entries by: meal and diet (eg. dinner, keto, nut allergies)
 
 ## Technology

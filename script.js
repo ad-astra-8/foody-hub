@@ -149,7 +149,6 @@ function watchForm() {
         const mealType = $("#js-search-meal").val();
         const dietType = $("#js-search-diet").val();
         const allergies = $("#js-search-allergies").val();
-        const maxResults = $("#js-max-results").val();
         getRecipes(ingredient, mealType, dietType, allergies);
         // console.log(`${ingredient}`);
         getYouTubeVideos();
