@@ -49,14 +49,14 @@
   }
 
 
-  /* @media only screen and (min-width: 320px) { */
+  /* App built for mobile devices first @ (min-width: 320px) { */
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  h1{
+  h1 {
     color: #F4EAE3;
     font-size: 40px;
     font-family: 'Spicy Rice', cursive;
@@ -64,7 +64,7 @@
     padding: 0;
   }
 
-  h2{
+  h2 {
     margin-top: 40px;    
     padding: 40px 0 30px 0;
     text-align: center;
@@ -74,12 +74,12 @@
     letter-spacing: 3px;
   }
 
-  h3{
+  h3 {
     color: #D33326;
     font-size: 25px;
   }
 
-  header{
+  header {
     background-image: url("https://image.freepik.com/free-photo/fresh-ingredients-cooking-pasta-wooden-background_23-2147925942.jpg");
     height: 400px;
     width: 100%;
@@ -99,13 +99,13 @@
     padding-right: 20px;
   }
 
-  .in-title{
+  .in-title {
     font-size: 18px;
     color: #F4EAE3;
     position: relative;
   }
 
-  img:hover{
+  img:hover {
     box-shadow: 0 0 2px 1px #D82C18;
   }
 
@@ -115,15 +115,15 @@
     margin-bottom: 20px;
   }
   
-  li, img{
+  li, img {
     max-width: 500px;
   }
   
-  .error-message{
+  .error-message {
     color: #D33326;
   }
 
-  footer{
+  footer {
     font-size: 12px;
     background-color:#352723;
     margin-top: 0px;
@@ -133,12 +133,12 @@
     color: white;
   }
 
-  .fas fa-bone{
+  .fas fa-bone {
     font-weight: 900;
     font-size: 30px;
   }
 
-  fieldset{
+  fieldset {
     border: 0;
     padding: 0;
     margin: 0;
@@ -147,38 +147,38 @@
     padding-top: 40px;
   }
 
-  .hidden{
+  .hidden {
     display: none;
   }
 
-  input{
+  input {
     padding: 10px 0 10px 0;
     margin: 10px 0 10px 0;
     height: 44px;
     width: 264px;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     padding: 5px;
     border-radius: 4px;
     -webkit-appearance: media-sliderthumb;
   }
 
-  label{
+  label {
     font-size: 20px;
     padding-top: 10px;
   }
 
-  .message{
+  .message {
     padding-bottom: 0;
   }
 
-  .summary{
+  .summary {
     font-size: 16px;
     display: none;
   }
 
-  .presentation{
+  .presentation {
     text-align: center;
     line-height: 1.5;
     margin-top: 60px;
@@ -190,29 +190,29 @@
     margin-right: auto;
     font-weight: 900;
     font-size: 18px;
-}
+  }
 
-  #submit:hover{
+  #submit:hover {
     box-shadow: 0 0 2px 1px #D82C18;
     cursor: pointer;
   }
 
-  .recipe-image{
+  .recipe-image {
     border: 4px solid white;
     border-radius: 4px;
     padding: 6px;
     width: 100%;
   }
 
-  .results-videos{
+  .results-videos {
     background-color:#F4F1E6;
   }
 
-  section{
+  section {
     padding: 30px 0 30px 0;
   }
 
-  .sourcename{
+  .sourcename {
     font-size: 16px;
     font-weight: 700;
     text-decoration: underline;
@@ -222,7 +222,7 @@
     padding: 5px;
   }
 
-  #submit{
+  #submit {
     font-size: 20px;
     background-color: #517414;;
     -webkit-appearance: media-sliderthumb;
@@ -233,20 +233,19 @@
     border-radius: 4px;
   }
 
-  .title{
+  .title {
     font-size: 25px;
     font-weight: 600;
     color: #453023;
   }
-/* } */
 
   @media only screen and (min-width: 480px) {
-    .sourcename{
+    .sourcename {
       font-size: 15px;
       text-decoration: underline;
     }
     
-    .presentation{
+    .presentation {
       max-width: fit-content;
     }
   }  
@@ -267,7 +266,7 @@
       vertical-align: bottom;
     }
 
-    h1{
+    h1 {
       padding-top: 40px;
       font-size: 55px;
       transition-property: font-size;
@@ -275,7 +274,7 @@
       transition-timing-function: linear;
     }
 
-    h2{
+    h2 {
       font-size: 44px;
       transition-property: font-size;
       transition-duration: 1s;
@@ -296,21 +295,22 @@
       vertical-align: bottom;
     }
 
-    h1{
+    h1 {
       padding-top: 80px;
       font-size: 75px;
     }
 
-    .in-title{
+    .in-title {
       font-size: 24px;
       margin: 0;
       transition-property: font-size;
       transition-duration: 1s;
       transition-timing-function: linear;
     }
+  }
 
   @media only screen and (min-width: 900px) {
-    .presentation{
+    .presentation {
       max-width: 900px;
     } 
   }
